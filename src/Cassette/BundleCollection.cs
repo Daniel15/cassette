@@ -420,7 +420,7 @@ namespace Cassette
             }
         }
 
-        public void AddUrlWithLocalAssets<T>(string url, LocalAssetSettings localAssetSettings, Action<T> customizeBundle = null)
+        public void AddUrlWithLocalAssets<T>(string url, LocalAssetSettings localAssetSettings, Action<Bundle> customizeBundle = null)
             where T : Bundle
         {
             var existingBundle = bundles.FirstOrDefault(
@@ -482,7 +482,7 @@ namespace Cassette
             }
         }
 
-        public void AddUrlWithAlias<T>(string url, string alias, Action<T> customizeBundle = null)
+        public void AddUrlWithAlias<T>(string url, string alias, Action<Bundle> customizeBundle = null)
             where T : Bundle
         {
             var bundleFactory = bundleFactoryProvider.GetBundleFactory<T>();
@@ -502,7 +502,7 @@ namespace Cassette
         /// <param name="url">The URL to reference.</param>
         /// <param name="customizeBundle">A delegate that is called for each created bundle to allow customization.</param>
         /// <returns>A object used to further configure the bundle.</returns>
-        public void AddUrl<T>(string url, Action<T> customizeBundle = null)
+        public void AddUrl<T>(string url, Action<Bundle> customizeBundle = null)
             where T : Bundle
         {
             var bundleFactory = bundleFactoryProvider.GetBundleFactory<T>();
